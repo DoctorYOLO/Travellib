@@ -1,0 +1,107 @@
+.border{
+	border-collapse: collapse;
+	border: 1px solid black;
+	height: 50px;
+	background: red;
+}
+
+
+
+header{margin-top: 30px;}
+header .input-group{margin-top: 5px;}
+.nav-block{
+	background: #0768d8;
+	margin-top: 20px;
+}
+
+.nav-block a{color: #fff !important;}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus{background-color: #39424c;}
+.navbar.navbar-default{
+	border: none;
+	margin-bottom: 0;
+}
+/*Стили для кнопки с анимацией*/
+#nav-anim-toggle{
+	position: relative;
+	display: inline-block;
+	float: right;
+	margin-top: 12px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+#nav-anim-toggle span{
+	position: absolute;
+	left: 0;
+	top: 10px;
+}
+#nav-anim-toggle span,
+#nav-anim-toggle span:before,
+#nav-anim-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 4px;
+  width: 30px;
+  background: #777;
+  position: absolute;
+  display: block;
+  content: '';
+}
+#nav-anim-toggle span:before {top: -8px;}
+#nav-anim-toggle span:after {bottom: -8px;}
+/* Добавим анимацию всех свойств для блоков нашей иконки */
+#nav-anim-toggle span, #nav-anim-toggle span:before, #nav-anim-toggle span:after {
+	-webkit-transition: all 500ms ease-in-out;
+	-moz-transition: all 500ms ease-in-out;
+	transition: all 500ms ease-in-out;
+	background: #fff;
+}
+/* Центральный блок делаем прозрачным */
+#nav-anim-toggle.active span {background-color: transparent;}
+/* Смещаем псевдо-элементы в центр иконки (на место основного блока) */
+#nav-anim-toggle.active span:before, #nav-anim-toggle.active span:after{top: 0;}
+/* Наклоняем псевдо-элементы под углом 45 градусов, но в разные стороны */
+#nav-anim-toggle.active span:before {
+	-weblit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+#nav-anim-toggle.active span:after {
+ 	-webkit-transform: rotate(-45deg);
+ 	-moz-transform: rotate(-45deg);
+ 	transform: rotate(-45deg);
+ }
+.book{
+	margin-top: 30px;}
+
+	.book .title{
+	font-weight: bold;}
+
+@media (min-width: 768px){
+	#nav-anim-toggle{display: none !important;}
+}
+@media (max-width: 991px){
+	.book{text-align: center;}
+	.book .title{margin-top: 20px;}
+}
+
+div.pagerout { 
+    text-align:right; 
+    border-top: 2px solid silver;
+    padding: .5em 0 0 0; 
+    margin-top: 1em; 
+}
+
+div.pagerout a { 
+    font-size: 1.1em; 
+    color: #666; 
+    text-decoration: none;
+    padding: 0 .4em 0 .4em; 
+}
+div.pagerout a:hover { background-color: Silver; }
+div.pagerout a.selected { 
+    background-color: #353535; 
+    color: white; 
+}
