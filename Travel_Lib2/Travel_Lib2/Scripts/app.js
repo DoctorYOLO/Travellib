@@ -44,6 +44,10 @@
         ajaxHelper(booksUri, 'POST', book).done(function (item) {
             self.books.push(item);
         });
+
+        ajaxHelper(booksUri, 'DELETE', book.BookID).done(function (item) {
+            self.books.remove(item);
+        });
     }
 
     // Fetch the initial data.
