@@ -1965,6 +1965,7 @@ pre code {
     height: 150px;
     padding: 5px;
     display: inline-block;
+	margin-top: 20px;
   }
   .col-md-2 {
     width: 16.66666667%;
