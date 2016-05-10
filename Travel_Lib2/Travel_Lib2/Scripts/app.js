@@ -9,6 +9,8 @@
         Description: ko.observable(),
         BookImage: ko.observable()
     }
+    self.bookToDelete = ko.observable();
+    self.bookDetail = ko.observable();
 
     var booksUri = '/api/books/';
 
@@ -22,6 +24,12 @@
             data: data ? JSON.stringify(data) : null
         }).fail(function (jqXHR, textStatus, errorThrown) {
             self.error(errorThrown);
+        });
+    }
+
+    self.deleteBook = function (item) {
+        ajaxHelper(booksUri + item.BookID, 'DELETE').done(function (data) {
+            self.bookToDelete(data);
         });
     }
 
@@ -45,8 +53,11 @@
             self.books.push(item);
         });
 
-        ajaxHelper(booksUri, 'DELETE', book.BookID).done(function (item) {
-            self.books.remove(item);
+    }
+    
+    self.getBookDetail = function (item) {
+        ajaxHelper(booksUri + item.BookID, 'GET').done(function (data) {
+            self.bookDetail(data);
         });
     }
 

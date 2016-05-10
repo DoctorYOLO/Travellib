@@ -35,11 +35,11 @@ namespace Travel_Lib2.Controllers
         }
 
         // GET api/Books/5
-        [ResponseType(typeof(Book))]
+        [ResponseType(typeof(BookDetailsDTO))]
         public async Task<IHttpActionResult> GetBook(int id)
         {
-          
-            Book book = await db.Books.FindAsync(id);
+            
+            
             if (book == null)
             {
                 return NotFound();
@@ -91,7 +91,12 @@ namespace Travel_Lib2.Controllers
                 return BadRequest(ModelState);
             }
 
+            if ((book.BookImage == "") || (book.BookImage == "null") || (book.BookImage == "NULL"))
+            {
+                book.BookImage = "./Content/hard_cover.jpg";
+            }
             db.Books.Add(book);
+            
             await db.SaveChangesAsync();
 
 
@@ -104,6 +109,7 @@ namespace Travel_Lib2.Controllers
                 Description = book.Description,
                 BookImage = book.BookImage
             };
+            
 
             return CreatedAtRoute("DefaultApi", new { id = book.BookID }, dto);
         }

@@ -55,6 +55,7 @@ template {
 }
 a {
   background-color: transparent;
+  padding: 0;
 }
 a:active,
 a:hover {
@@ -1102,7 +1103,6 @@ a {
 	font-size: 1.1em; 
 	color: #666; 
 	text-decoration: none;
-	padding: 0 .4em 0 .4em; 
 }
 a:hover{background-color: Silver;}
 a:selected { 
@@ -1582,6 +1582,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 20px;
 }
 @media (min-width: 768px) {
   .container {
@@ -1613,6 +1614,10 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+}
+
+.col-md-9 {
+	margin-bottom: 20px;
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
