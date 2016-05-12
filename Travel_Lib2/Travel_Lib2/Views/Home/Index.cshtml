@@ -64,7 +64,7 @@
                 <img data-bind="attr:{src: BookImage}" />
             </div>
             <div class="col-md-9">
-                <a href="" data-bind="click: $parent.getBookDetail">
+                <a href="">
                     <h3><span data-bind="text: BookName"></span></h3>
                 </a>
                 <p><span data-bind="text: AuthorName"></span></p>
@@ -75,24 +75,5 @@
             </div>
         </div>
     </div>
-    <div class="container">
-    <div class="row book">
-        <div class="col-md-3">
-            <img data-bind="attr:{src: bookDetail().BookImage}" />
-        </div>
-        <div class="col-md-9">
-            <h3><span data-bind="text: bookDetail().BookName"></span></h3>
-            <p><span data-bind="text: bookDetail().AuthorName">Автор: </span></p>
-            <p><span data-bind="text: bookDetail().Year">Год издания: </span></p>
-            <p><span data-bind="text: bookDetail().ISBN">ISBN: </span></p>
-            <p><span data-bind="text: bookDetail().Cover">Переплет: </span></p>
-            <p><span data-bind="text: bookDetail().Language">Язык: </span></p>
-            <p><span data-bind="text: bookDetail().Pages">Количество страниц: </span></p>
-            <p><span data-bind="text: bookDetail().Category">Категория: </span></p>
-            <p><span data-bind="text: bookDetail().Description">Описание: </span></p>
-        </div>
-    </div>
-    </div>
-
     <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
 </body>

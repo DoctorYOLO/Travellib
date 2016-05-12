@@ -13,28 +13,17 @@ using Travel_Lib2.Models;
 
 namespace Travel_Lib2.Controllers
 {
-    public class BooksController : ApiController
+    public class Default1Controller : ApiController
     {
         private BookServiceContext db = new BookServiceContext();
 
-        // GET api/Books
-        public IQueryable<BookDTO> GetBooks()
+        // GET api/Default1
+        public IQueryable<Book> GetBooks()
         {
-            var books = from b in db.Books
-                        select new BookDTO()
-                        {
-                            BookID = b.BookID,
-                            BookName = b.BookName,
-                            AuthorName = b.AuthorName,
-                            Category = b.Category,
-                            Description = b.Description,
-                            BookImage = b.BookImage
-                        };
-
-            return books;
+            return db.Books;
         }
 
-        // GET api/Books/5
+        // GET api/Default1/5
         [ResponseType(typeof(Book))]
         public async Task<IHttpActionResult> GetBook(int id)
         {
@@ -47,7 +36,7 @@ namespace Travel_Lib2.Controllers
             return Ok(book);
         }
 
-        // PUT api/Books/5
+        // PUT api/Default1/5
         public async Task<IHttpActionResult> PutBook(int id, Book book)
         {
             if (!ModelState.IsValid)
@@ -81,7 +70,7 @@ namespace Travel_Lib2.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST api/Books
+        // POST api/Default1
         [ResponseType(typeof(Book))]
         public async Task<IHttpActionResult> PostBook(Book book)
         {
@@ -90,30 +79,13 @@ namespace Travel_Lib2.Controllers
                 return BadRequest(ModelState);
             }
 
-            if ((book.BookImage == "") || (book.BookImage == "null") || (book.BookImage == "NULL"))
-            {
-                book.BookImage = "./Content/hard_cover.jpg";
-            }
             db.Books.Add(book);
-            
             await db.SaveChangesAsync();
 
-
-            var dto = new BookDTO()
-            {
-                BookID = book.BookID,
-                BookName = book.BookName,
-                AuthorName = book.AuthorName,
-                Category = book.Category,
-                Description = book.Description,
-                BookImage = book.BookImage
-            };
-            
-
-            return CreatedAtRoute("DefaultApi", new { id = book.BookID }, dto);
+            return CreatedAtRoute("DefaultApi", new { id = book.BookID }, book);
         }
 
-        // DELETE api/Books/5
+        // DELETE api/Default1/5
         [ResponseType(typeof(Book))]
         public async Task<IHttpActionResult> DeleteBook(int id)
         {
