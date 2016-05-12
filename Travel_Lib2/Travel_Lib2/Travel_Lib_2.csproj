@@ -169,7 +169,6 @@
     <Compile Include="Controllers\AddBookController.cs" />
     <Compile Include="Controllers\BookDetailController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
-    <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

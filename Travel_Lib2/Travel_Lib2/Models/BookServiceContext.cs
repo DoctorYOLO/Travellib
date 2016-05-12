@@ -20,7 +20,6 @@ namespace Travel_Lib2.Models
             this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
         }
 
-        public System.Data.Entity.DbSet<Travel_Lib2.Models.Book> Books { get; set; }
-    
+        public System.Data.Entity.DbSet<Travel_Lib2.Models.Book> Books { get; set; }    
     }
 }

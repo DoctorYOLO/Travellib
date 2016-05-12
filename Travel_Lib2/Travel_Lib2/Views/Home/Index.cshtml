@@ -64,16 +64,35 @@
                 <img data-bind="attr:{src: BookImage}" />
             </div>
             <div class="col-md-9">
-                <a href="">
+                <a href="#" data-bind="click: $parent.getBookDetail">
                     <h3><span data-bind="text: BookName"></span></h3>
                 </a>
                 <p><span data-bind="text: AuthorName"></span></p>
                 <p><span data-bind="text: Category"></span></p>
                 <p><span data-bind="text: Description"></span></p>
-                <small><a href="#" data-bind="click: $parent.deleteBook">Delete</a></small>
-
+                <small><a href="" data-bind="click: $parent.deleteBook">Delete</a></small>
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row book">
+            <div class="col-md-3">
+                <img data-bind="attr:{src: bookDetail().BookImage}" />
+            </div>
+            <table class="table">
+                <tr><td data-bind="text: bookDetail().BookName"></td></tr>
+                <tr><td>Автор:</td><td data-bind="text: bookDetail().AuthorName"></td></tr>
+                <tr><td>Год издания: </td><td data-bind="text: bookDetail().Year"></td></tr>
+                <tr><td>ISBN: </td><td data-bind="text: bookDetail().ISBN"></td></tr>
+                <tr><td>Переплет: </td><td data-bind="text: bookDetail().Cover"></td></tr>
+                <tr><td>Язык: </td><td data-bind="text: bookDetail().Language"></td></tr>
+                <tr><td>Количество страниц: </td><td data-bind="text: bookDetail().Pages"></td></tr>
+                <tr><td>Категория: </td><td data-bind="text: bookDetail().Category"></td></tr>
+                <tr><td>Описание: </td><td data-bind="text: bookDetail().Description"></td></tr>
+            </table>
+        </div>
+    </div>
+
     <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
 </body>

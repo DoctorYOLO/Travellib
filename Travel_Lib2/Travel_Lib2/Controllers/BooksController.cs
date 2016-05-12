@@ -16,6 +16,7 @@ namespace Travel_Lib2.Controllers
     public class BooksController : ApiController
     {
         private BookServiceContext db = new BookServiceContext();
+        private BookServiceContext db1 = new BookServiceContext();
 
         // GET api/Books
         public IQueryable<BookDTO> GetBooks()
@@ -38,6 +39,7 @@ namespace Travel_Lib2.Controllers
         [ResponseType(typeof(Book))]
         public async Task<IHttpActionResult> GetBook(int id)
         {
+            //BookDetailsDTO book = await db.Books.FindAsync(id);
             Book book = await db.Books.FindAsync(id);
             if (book == null)
             {
