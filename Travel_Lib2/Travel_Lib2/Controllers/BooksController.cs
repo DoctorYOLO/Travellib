@@ -16,7 +16,6 @@ namespace Travel_Lib2.Controllers
     public class BooksController : ApiController
     {
         private BookServiceContext db = new BookServiceContext();
-        private BookServiceContext db1 = new BookServiceContext();
 
         // GET api/Books
         public IQueryable<BookDTO> GetBooks()

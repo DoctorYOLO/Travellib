@@ -55,6 +55,11 @@
 
     }
     
+    function getBookDtl(bID) {
+        ajaxHelper(booksUri + bID, 'GET').done(function (data) {
+            self.bookDetail(data);
+        });
+    }
     self.getBookDetail = function (item) {
         ajaxHelper(booksUri + item.BookID, 'GET').done(function (data) {
             self.bookDetail(data);

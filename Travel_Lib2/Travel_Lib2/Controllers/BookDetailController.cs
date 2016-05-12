@@ -14,5 +14,12 @@ namespace Travel_Lib2.Controllers
         {
             return View();
         }
+
+        [Route("BookDetail/Smth/{id}")]
+        public ActionResult Smthng(int id)
+        {
+            //return string.Format("User id: {0}", id);
+            return View("id");
+        }
 	}
 }

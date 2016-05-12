@@ -12,52 +12,6 @@
 </head>
 
 <body>
-    <div class="container">
-        <header class="row">
-            <div class="col-md-2">
-                <img src="/Content/logo.png" alt="Логотип">
-            </div>
-
-            <div class="col-md-4 col-md-offset-6">
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
-            </div>
-        </header>
-    </div>
-
-    <div class="nav-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-default" role="navigation">
-                        <div class="navbar-header">
-                            <a data-toggle="collapse" data-target="#navbar-collapse" id="nav-anim-toggle">
-                                <span></span>
-                            </a>
-                            <a class="navbar-brand" href="#">Brand</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="navbar-collapse">
-                            <ul class="nav navbar-nav">
-                                <li><a href="#">Профиль</a></li>
-                                <li class="active"><a href="@Url.Action("Index", "Home")">Книги</a></li>
-                                <li><a href="#">Авторы</a></li>
-                                <li><a href="#">Новинки</a></li>
-                                <li><a href="#">Пользователи</a></li>
-                                <li><a href="@Url.Action("Index", "AddBook")">Заказать книгу</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="container" data-bind="foreach: books">
         <div class="row book">
             <div class="col-md-3">
@@ -65,6 +19,7 @@
             </div>
             <div class="col-md-9">
                 <a href="#" data-bind="click: $parent.getBookDetail">
+                    <h3><span>The current item is: <b data-bind="text: BookID"></b></span></h3>
                     <h3><span data-bind="text: BookName"></span></h3>
                 </a>
                 <p><span data-bind="text: AuthorName"></span></p>
@@ -74,25 +29,25 @@
             </div>
         </div>
     </div>
-
+    <!-- ko if:bookDetail() -->
     <div class="container">
         <div class="row book">
             <div class="col-md-3">
                 <img data-bind="attr:{src: bookDetail().BookImage}" />
             </div>
-            <table class="table">
-                <tr><td data-bind="text: bookDetail().BookName"></td></tr>
-                <tr><td>Автор:</td><td data-bind="text: bookDetail().AuthorName"></td></tr>
-                <tr><td>Год издания: </td><td data-bind="text: bookDetail().Year"></td></tr>
-                <tr><td>ISBN: </td><td data-bind="text: bookDetail().ISBN"></td></tr>
-                <tr><td>Переплет: </td><td data-bind="text: bookDetail().Cover"></td></tr>
-                <tr><td>Язык: </td><td data-bind="text: bookDetail().Language"></td></tr>
-                <tr><td>Количество страниц: </td><td data-bind="text: bookDetail().Pages"></td></tr>
-                <tr><td>Категория: </td><td data-bind="text: bookDetail().Category"></td></tr>
-                <tr><td>Описание: </td><td data-bind="text: bookDetail().Description"></td></tr>
-            </table>
+            <div class="col-md-9">
+                <h3><span data-bind="text: bookDetail().BookName"></span></h3>
+                <p>Автор: <span data-bind="text: bookDetail().AuthorName"></span></p>
+                <p>Год издания: <span data-bind="text: bookDetail().Year"></span></p>
+                <p>ISBN: <span data-bind="text: bookDetail().ISBN"></span></p>
+                <p>Переплет: <span data-bind="text: bookDetail().Cover"></span></p>
+                <p>Язык: <span data-bind="text: bookDetail().Language"></span></p>
+                <p>Количество страниц: <span data-bind="text: bookDetail().Pages"></span></p>
+                <p>Категория: <span data-bind="text: bookDetail().Category"></span></p>
+                <p>Описание: <span data-bind="text: bookDetail().Description"></span></p>
+            </div>
         </div>
     </div>
-
+    <!-- /ko -->
     <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
 </body>

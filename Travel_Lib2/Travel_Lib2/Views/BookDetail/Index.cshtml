@@ -12,53 +12,8 @@
 </head>
 
 <body>
-    <div class="container">
-        <header class="row">
-            <div class="col-md-2">
-                <img src="/Content/logo.png" alt="Логотип">
-            </div>
-
-            <div class="col-md-4 col-md-offset-6">
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
-            </div>
-        </header>
-    </div>
-
-    <div class="nav-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-default" role="navigation">
-                        <div class="navbar-header">
-                            <a data-toggle="collapse" data-target="#navbar-collapse" id="nav-anim-toggle">
-                                <span></span>
-                            </a>
-                            <a class="navbar-brand" href="#">Brand</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="navbar-collapse">
-                            <ul class="nav navbar-nav">
-                                <li><a href="#">Профиль</a></li>
-                                <li><a href="@Url.Action("Index", "Home")">Книги</a></li>
-                                <li><a href="#">Авторы</a></li>
-                                <li><a href="#">Новинки</a></li>
-                                <li><a href="#">Пользователи</a></li>
-                                <li><a href="@Url.Action("Index", "AddBook")">Заказать книгу</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" data-bind="foreach: books">
+     <!-- ko if:bookDetail() -->
+    <div class="container" >
         <div class="row book">
             <div class="col-md-3">
                 <img data-bind="attr:{src: bookDetail().BookImage}" />
@@ -76,6 +31,6 @@
             </div>
         </div>
     </div>
-
+    <!-- /ko -->
     <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
 </body>

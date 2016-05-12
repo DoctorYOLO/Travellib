@@ -61,6 +61,11 @@ a:active,
 a:hover {
   outline: 0;
 }
+
+li a:active{
+	background-color: #39424c;
+}
+
 abbr[title] {
   border-bottom: 1px dotted;
 }
